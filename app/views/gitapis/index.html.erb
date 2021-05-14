@@ -1,0 +1,31 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+  </ol>
+</nav>
+
+
+    <button type="button" class="btn btn-primary">
+    Project Name : <span class="badge bg-secondary">Git_Repo_Data</span>
+    </button>
+      <%#=@api_data.inspect%>
+<div class="accordion" id="accordionExample">
+    <%@api_data.each do |data|%>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+               <%=data["commit"]["committer"]["date"]%> : <%=data["commit"]["committer"]["name"]%>
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>URL for file details:</strong><a href="<%=data["url"]%>">More..</a><br/>
+                <strong>URL for More Details:</strong><a href="<%=data["html_url"]%>">More..</a><br/>
+                <strong>URL for Comments:</strong><a href="<%=data["comments_url"]%>">More..</a><br/>
+                <strong>Message:</strong>&nbsp;<%=data["commit"]["message"]%>
+            </div>
+            </div>
+        </div>
+    <%end%>
+</div>
+
