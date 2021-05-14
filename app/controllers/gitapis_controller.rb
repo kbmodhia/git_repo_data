@@ -7,7 +7,7 @@ class GitapisController < ApplicationController
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         request = Net::HTTP::Get.new(url)
-        request["authorization"] = 'token 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'
+        request["authorization"] = 'token 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'
         request["content-type"] = 'application/json'
         response = http.request(request)
         @api_data = JSON.parse(response.read_body)
